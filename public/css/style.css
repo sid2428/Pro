@@ -1,121 +1,374 @@
-body{
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-optical-sizing: auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/*
+ * Portfolio-Level `style.css`
+ *
+ * This CSS has been significantly upgraded to create a more polished, professional UI.
+ * Key changes include a refined color palette, enhanced typography, and a modern design language
+ * with better use of shadows, transitions, and responsive layouts.
+ *
+ */
+
+/* General Body and Container Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50; /* A dark, professional text color */
+    background-color: #ecf0f1; /* A very light gray background */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.6;
 }
-.container{
+
+.container {
     flex: 1;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
 }
-/* navbar */
-.navbar{
+
+/* Navbar Enhancements */
+.navbar {
     height: 5rem;
-    background-color: white;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* More prominent, soft shadow */
+    transition: all 0.3s ease;
+    padding: 0 2rem;
+    border-bottom: 1px solid #e0e0e0;
 }
-.fa-compass{
-    color: #fe424d;
-    font-size: 2rem;
+
+.navbar-brand {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ff385c !important; /* Airbnb's signature pink/red */
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    transition: color 0.3s ease;
 }
-.nav-link{
-    color: #222222 !important;
+
+.navbar-brand:hover {
+    color: #e5294a !important;
 }
-/* footer */
-.f-info-links a{
-    text-decoration: none;
-    color: #222222;
+
+.nav-link {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #555555 !important;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding: 0.5rem 0;
+    margin-right: 1.5rem;
 }
-.f-info-links,.f-info-socials,.f-info-brand{
-    width: 100%;
+
+.nav-link:hover {
+    color: #ff385c !important;
+    border-bottom: 2px solid #ff385c;
+}
+
+/* Search Bar Styling */
+.search-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #b2bec3;
+    border-radius: 3rem; /* More rounded look */
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search-form:hover, .search-form:focus-within {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #ff385c;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.search-btn {
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.f-info-socials i{
-    font-size: 1.2rem;
-    margin-right: 1rem;
+.search-btn i {
+    font-size: 1.1rem;
 }
 
+.search-btn:hover {
+    background-color: #e5294a;
+    transform: scale(1.1); /* More pronounced hover effect */
+}
 
+/* Filters Section */
+#filters {
+    display: flex;
+    flex-wrap: wrap; /* Allows icons to wrap to the next row */
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
 
-.f-info-links a:hover{
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 0.5rem;
+    flex-shrink: 0;
+    width: 100px;
+}
+
+.filter:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+}
+
+.filter i {
+    font-size: 2.2rem;
+    color: #555555;
+    transition: color 0.3s ease;
+}
+
+.filter:hover i {
+    color: #ff385c;
+}
+
+.filter p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    color: #555555;
+}
+
+@media (max-width: 768px) {
+    .filter {
+        width: 80px;
+    }
+}
+
+/* Listing Cards on Index Page */
+.listing-card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.listing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+    border-radius: 1rem;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-text b {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333333;
+}
+
+.listing-link {
+    text-decoration: none;
+    color: #222222;
+}
+
+/* Card Improvements for Show Page */
+.show-card {
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin: 2rem 0;
+    background-color: #ffffff;
+}
+
+.show-card .card-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem 1rem 0 0; /* Only top corners are rounded */
+    object-fit: cover;
+}
+
+.show-card .card-body {
+    padding: 2rem;
+}
+
+.show-card .card-body h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+.show-card .card-body p {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 1rem;
+}
+
+.show-card .list-group-item {
+    font-size: 1.1rem;
+    color: #555555;
+    border-left: none;
+    border-right: none;
+    padding: 1.25rem 2rem;
+}
+
+.show-card .list-group-item:first-child {
+    border-top: none;
+}
+
+.show-card .list-group-item strong {
+    color: #333333;
+}
+
+/* Reviews Section */
+.reviews-section h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ff385c;
+    padding-bottom: 0.5rem;
+}
+
+.review-card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    background-color: #fcfcfc;
+}
+
+.review-card .card-body {
+    padding: 1.5rem;
+}
+
+.review-card .card-title {
+    font-weight: 600;
+    color: #ff385c;
+    font-size: 1rem;
+}
+
+.review-card .card-text {
+    font-size: 0.95rem;
+    color: #555555;
+}
+
+.form-control:focus {
+    border-color: #ff385c;
+    box-shadow: 0 0 0 0.2rem rgba(255, 56, 92, 0.25);
+}
+
+.add-btn, .btn-dark, .btn-edit {
+    background-color: #ff385c !important;
+    border: none !important;
+    border-radius: 0.75rem;
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+.add-btn:hover, .btn-dark:hover, .btn-edit:hover {
+    background-color: #e5294a !important;
+    transform: translateY(-2px);
+}
+
+/* Footer Improvements */
+.f-info {
+    padding: 3rem 0;
+    background-color: #e0e0e0;
+    border-top: 1px solid #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.f-info-socials, .f-info-links, .f-info-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.f-info-socials i {
+    font-size: 1.8rem;
+    color: #555555;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.f-info-socials i:hover {
+    color: #ff385c;
+    transform: translateY(-3px);
+}
+
+.f-info-links a {
+    color: #555555;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.f-info-links a:hover {
+    color: #ff385c;
     text-decoration: underline;
 }
 
-.f-info{
-    text-align: center;
-    display: flex;
-    height: 8rem;
-    background-color: #ebebeb;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
+.f-info-brand {
+    font-size: 1.1rem;
+    color: #777777;
+    font-weight: 500;
 }
 
-/* cards */
-.listing-card{
-    border: none ;
-    margin-bottom: 2rem;
-}
-.card-img-top{
-    border-radius: 1rem ;
-    object-fit: cover;
-    height: 20rem;
-}
-.card-body{
-    padding: 0;
-}
-.card-text p{
-    font-weight: 400;
-}
-.listing-link{
-    text-decoration: none;
-}
-/* card effect */
-.card-img-overlay{
-    opacity: 0;
-}
-.card-img-overlay:hover{
-    opacity: 0.2;
-    background-color: white;
-}
-/* new page */
-.btn-add,.btn-edit{
-    background-color: #fe424d;
-    border: none;
-}
-
-/* show page */
-.show-image{
-    height: 30vh;
-
-}
-
-/* dropdown menu of navbar background colour */
-.dropp{
-    background-color: #fe434d;
-    border-color: #fe434d;  /* Optional: to change the border color too */
-  }
-
-  #map{
-    height : 400px;
-    width: 120 vh;
-  }
-.nav-search{
-    border-radius: 25px;
-    text-align: center;
-}
-.nav-button{
-    border-radius: 25px;
-    border-color: #fe434d; 
-    text-decoration: #fe424d;
-    text-align: center;
-}
-.nav-button:hover{
-    background-color: #fe434d;
-    border-color: #fe434d; 
-}
-.fa-magnifying-glass{
-    display: inline;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+    .nav-link {
+        margin-right: 0;
+    }
+    .search-form {
+        margin-top: 1rem;
+    }
+    .f-info-socials, .f-info-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .listing-card .card-img-top {
+        height: 200px;
+    }
 }
