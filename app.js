@@ -102,6 +102,9 @@ app.use((err, req, res, next) => {
     let { status = 500, message = "Something went wrong!!" } = err;
     res.status(status).render('listings/error.ejs', { message, err });
 });
+app.get('/terms', (req, res) => {
+    res.render('terms.ejs');
+});
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`); 
